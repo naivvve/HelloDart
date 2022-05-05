@@ -15,6 +15,7 @@ void dartcore_numbers_numbers_collections_strings_and_more() {
   assert(123.456.toStringAsPrecision(2) == '1.2e+2');
   assert(double.parse('1.2e+2') == 120.0);
 
+
   assert('Never odd or even'.contains('odd'));
   assert('Never odd or even'.startsWith('Never'));
   assert('Never odd or even'.endsWith('even'));
