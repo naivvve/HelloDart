@@ -15,7 +15,6 @@ void dartcore_numbers_numbers_collections_strings_and_more() {
   assert(123.456.toStringAsPrecision(2) == '1.2e+2');
   assert(double.parse('1.2e+2') == 120.0);
 
-
   assert('Never odd or even'.contains('odd'));
   assert('Never odd or even'.startsWith('Never'));
   assert('Never odd or even'.endsWith('even'));
@@ -100,7 +99,6 @@ void the_lists() {
   fruits.add('apples');
   var fruit = fruits[0];
   assert(fruit is String);
-
 }
 
 void the_sets() {
@@ -145,7 +143,7 @@ void the_maps() {
 
   var nobleGases = Map<int, String>();
 
-  nobleGases = {54: 'xenon'}; 
+  nobleGases = {54: 'xenon'};
 
   assert(nobleGases[54] == 'xenon');
 
@@ -234,11 +232,10 @@ void collections() {
   the_public_methods();
 }
 
-
 // 时间和日期
 void dates_and_times() {
   print('\n');
-  print('*' * 40);
+  print('*' * 20);
   print('时间和日期');
 
   var now = DateTime.now();
@@ -272,7 +269,7 @@ void dates_and_times() {
   assert(duration.inDays == 366); // y2k was a leap year.
 }
 
-// 数学和随机数 
+// 数学和随机数
 void math_and_random() {
   print('\n');
   print('*' * 40);
@@ -295,7 +292,7 @@ void math_and_random() {
   print(sqrt2); // 1.4142135623730951
 
   var random = Random();
-  var value1 = random.nextDouble(); 
+  var value1 = random.nextDouble();
   print('nextDouble: $value1');
   print('\n');
   var value2 = random.nextInt(10);
@@ -318,5 +315,4 @@ void main(List<String> args) {
 
   // 数学和随机数
   math_and_random();
-
 }
