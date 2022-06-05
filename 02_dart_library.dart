@@ -1,10 +1,7 @@
 import 'dart:math';
 
-// 数字、集合、字符串
 void dartcore_numbers_numbers_collections_strings_and_more() {
-  print('\n');
-  print('*' * 40);
-  print('数字、集合、字符串');
+  print('数字、集合、字符串:');
   assert(int.parse('42') == 42);
   assert(int.parse('0x42') == 66);
   assert(double.parse('0.50') == 0.5);
@@ -31,7 +28,6 @@ void dartcore_numbers_numbers_collections_strings_and_more() {
     print(char);
   }
 
-  // UTF 编码
   var codeUnitList = 'Never odd or even'.codeUnits.toList();
   assert(codeUnitList[0] == 78);
 
@@ -134,9 +130,9 @@ void the_sets() {
 
 void the_maps() {
   var hawaiianBeaches = {
-    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
-    'Big Island': ['Wailea Bay', 'Pololu Beach'],
-    'Kauai': ['Hanalei', 'Poipu']
+    'beijing': ['a', 'b', 'c'],
+    'shanghai': ['d', 'e'],
+    'guangzhou': ['f', 'g']
   };
 
   var searchTerms = Map();
@@ -153,9 +149,9 @@ void the_maps() {
   assert(!nobleGases.containsKey(54));
 
   hawaiianBeaches = {
-    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
-    'Big Island': ['Wailea Bay', 'Pololu Beach'],
-    'Kauai': ['Hanalei', 'Poipu']
+    'beijing': ['a', 'b', 'c'],
+    'shanghai': ['d', 'e'],
+    'guangzhou': ['f', 'g']
   };
 
   var keys = hawaiianBeaches.keys;
@@ -165,12 +161,12 @@ void the_maps() {
 
   var values = hawaiianBeaches.values;
   assert(values.length == 3);
-  assert(values.any((v) => v.contains('Waikiki')));
+  assert(values.any((v) => v.contains('a')));
 
   hawaiianBeaches = {
-    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
-    'Big Island': ['Wailea Bay', 'Pololu Beach'],
-    'Kauai': ['Hanalei', 'Poipu']
+    'beijing': ['a', 'b', 'c'],
+    'shanghai': ['d', 'e'],
+    'guangzhou': ['f', 'g']
   };
 
   assert(hawaiianBeaches.containsKey('Oahu'));
@@ -187,45 +183,43 @@ void the_maps() {
 
 void the_public_methods() {
   var coffees = <String>[];
-  var teas = ['green', 'black', 'chamomile', 'earl grey'];
+  var food = ['chips', 'bread', 'chocolate'];
   assert(coffees.isEmpty);
-  assert(teas.isNotEmpty);
+  assert(food.isNotEmpty);
 
-  teas = ['green', 'black', 'chamomile', 'earl grey'];
-  teas.forEach((tea) => print('I drink $tea'));
+  food = ['chips', 'bread', 'chocolate'];
+  food.forEach((food1) => print('I want to eat $food1'));
 
   var hawaiianBeaches = {
-    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
-    'Big Island': ['Wailea Bay', 'Pololu Beach'],
-    'Kauai': ['Hanalei', 'Poipu']
+    'beijing': ['a', 'b', 'c'],
+    'shanghai': ['d', 'e'],
+    'guangzhou': ['f', 'g']
   };
   hawaiianBeaches.forEach((k, v) {
-    print('I want to visit $k and swim at $v');
+    print('I want to visit $k and play at $v');
   });
 
-  teas = ['green', 'black', 'chamomile', 'earl grey'];
+  food = ['chips', 'bread', 'chocolate'];
 
-  var loudTeas = teas.map((tea) => tea.toUpperCase());
+  var loudTeas = food.map((food1) => food1.toUpperCase());
   loudTeas.forEach(print);
-  var loadTeas_str = loudTeas = teas.map((tea) => tea.toUpperCase()).toList();
+  var loadTeas_str =
+      loudTeas = food.map((food1) => food1.toUpperCase()).toList();
   print(loadTeas_str);
 
-  teas = ['green', 'black', 'chamomile', 'earl grey'];
+  food = ['chips', 'bread', 'chocolate'];
 
   bool isDecaffeinated(String teaName) => teaName == 'chamomile';
 
-  var decaffeinatedTeas = teas.where((tea) => isDecaffeinated(tea));
+  var decaffeinatedTeas = food.where((food1) => isDecaffeinated(food1));
 
-  assert(teas.any(isDecaffeinated));
+  assert(food.any(isDecaffeinated));
 
-  assert(!teas.every(isDecaffeinated));
+  assert(!food.every(isDecaffeinated));
 }
 
 void collections() {
-  print('\n');
-  print('*' * 40);
-  print('集合');
-
+  print('集合:');
   the_lists();
   the_sets();
   the_maps();
@@ -234,85 +228,54 @@ void collections() {
 
 // 时间和日期
 void dates_and_times() {
-  print('\n');
-  print('*' * 20);
-  print('时间和日期');
-
+  print('时间和日期:');
   var now = DateTime.now();
-
-  var y2k = DateTime(2000); // January 1, 2000
-
-  y2k = DateTime(2000, 1, 2); // January 2, 2000
-
-  y2k = DateTime.utc(2000); // 1/1/2000, UTC
-
+  var y2k = DateTime(2020);
+  y2k = DateTime(2020, 1, 1);
+  y2k = DateTime.utc(2020);
   y2k = DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
-
-  y2k = DateTime.parse('2000-01-01T00:00:00Z');
-
-  y2k = DateTime.utc(2000);
+  y2k = DateTime.parse('2020-01-01T00:00:00Z');
+  y2k = DateTime.utc(2020);
   assert(y2k.millisecondsSinceEpoch == 946684800000);
-
   var unixEpoch = DateTime.utc(1970);
   assert(unixEpoch.millisecondsSinceEpoch == 0);
-
-  y2k = DateTime.utc(2000);
-
+  y2k = DateTime.utc(2020);
   var y2001 = y2k.add(const Duration(days: 366));
   assert(y2001.year == 2001);
-
   var december2000 = y2001.subtract(const Duration(days: 30));
   assert(december2000.year == 2000);
   assert(december2000.month == 12);
-
   var duration = y2001.difference(y2k);
   assert(duration.inDays == 366); // y2k was a leap year.
 }
 
 // 数学和随机数
 void math_and_random() {
-  print('\n');
-  print('*' * 40);
-  print('数学和随机数');
-
+  print('数学和随机数:');
   assert(cos(pi) == -1.0);
-
-  var degrees = 30;
+  var degrees = 50;
   var radians = degrees * (pi / 180);
-
   var sinOf30degrees = sin(radians);
-
   assert((sinOf30degrees - 0.5).abs() < 0.01);
+  assert(max(1, 2000) == 2000);
+  assert(min(1, -2000) == -2000);
 
-  assert(max(1, 1000) == 1000);
-  assert(min(1, -1000) == -1000);
-
-  print(e); // 2.718281828459045
-  print(pi); // 3.141592653589793
-  print(sqrt2); // 1.4142135623730951
+  print(e);
+  print(pi);
+  print(sqrt2);
 
   var random = Random();
   var value1 = random.nextDouble();
   print('nextDouble: $value1');
-  print('\n');
   var value2 = random.nextInt(10);
   print('nextInt: $value2');
-  print('\n');
   var value3 = random.nextBool();
   print('nextBool: $value3');
-  print('\n');
 }
 
 void main(List<String> args) {
-  // 数字、集合、字符串等
-  dartcore_numbers_numbers_collections_strings_and_more();
-
-  // 集合
-  collections();
-
-  // 时间和日期
-  dates_and_times();
-
-  // 数学和随机数
-  math_and_random();
+  dartcore_numbers_numbers_collections_strings_and_more(); // 数字、集合、字符串等
+  collections(); // 集合
+  dates_and_times(); // 时间和日期
+  math_and_random(); // 数学和随机数
 }

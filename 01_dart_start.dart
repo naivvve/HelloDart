@@ -1,25 +1,18 @@
-// Importing core libraries
 import 'dart:math';
 import 'dart:async';
 import 'dart:io';
-// Importing libraries from external packages
-import '01_dart_start.dart';
-// Importing files
 import '01_dart_start.dart';
 
 // 变量
 void variables() {
-  print('\n');
-  print('*' * 40);
-  print('变量');
-
-  var name = 'Voyager I';
-  var year = 1977;
-  var antennaDiameter = 3.7;
-  var flybyObjects = ['Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+  print('变量:');
+  var name = 'a';
+  var year = 2000;
+  var antennaDiameter = 2;
+  var flybyObjects = ['b', 'c', 'd', 'e'];
   var image = {
-    'tags': ['saturn'],
-    'url': '//path/to/saturn.jpg'
+    'f': ['g'],
+    'h': 'i'
   };
 
   print(
@@ -28,10 +21,7 @@ void variables() {
 
 // 控制流程
 void control_flow_statements() {
-  print('\n');
-  print('*' * 40);
-  print('控制流程');
-
+  print('控制流程:');
   var year = DateTime.now().year;
 
   if (year >= 2001) {
@@ -40,23 +30,21 @@ void control_flow_statements() {
     print('20th centry');
   }
 
-  var flybyObjects = ['a', 'b', 'c'];
+  var flybyObjects = ['a', 'b'];
   for (final object in flybyObjects) {
     print(object);
   }
-
-  for (int month = 1; month <= 12; month++) {
+  for (int month = 1; month <= 3; month++) {
     print(month);
   }
-
   year = 2009;
-  while (year < 2016) {
+  while (year < 2013) {
     year += 1;
     print(year);
   }
 }
 
-// 函数 
+// 函数
 int fibonacci(int n) {
   if (n == 0 || n == 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
@@ -67,13 +55,9 @@ bool is_hit(String line, String target) {
 }
 
 void functions() {
-  print('\n');
-  print('*' * 40);
-  print('函数');
-
-
-  var fib = fibonacci(9);
-  print('fib 9 is $fib');
+  print('函数:');
+  var fib = fibonacci(7);
+  print('fibonacci 7 is $fib');
 
   var flybyObjects = [
     'hello',
@@ -86,53 +70,38 @@ void functions() {
 
   var hit_lines = flybyObjects.where((x) => is_hit(x, 'o'));
   for (var one in hit_lines) {
-    print('one is $one');
+    print('$one');
   }
 }
 
-// 注释 
+// 注释
 void comments() {
-  print('\n');
-  print('*' * 40);
-  print('注释');
-  print('comments prints nothing.');
+  print('注释:');
+  print('comments.');
 }
 
 // 导入
 void imports() {
-  print('\n');
-  print('*' * 40);
-  print('导入');
-
+  print('导入:');
   var mypi = pi;
   print('pi is $mypi');
-
-  var x = pi / 4;
-  var y = sin(x);
-  print('sin(pi/4) is $y');
 }
 
-// 类 
+// 类
 class Spacecraft {
   String name;
   DateTime? launchDate;
 
-  // Read-only non-final property
   int? get launchYear => launchDate?.year;
 
-  // Constructor, with syntactic sugar for assignment to members.
-  Spacecraft(this.name, this.launchDate) {
-    // TODO: init.
-  }
+  Spacecraft(this.name, this.launchDate) {}
 
-  // Named constructor that forwards to the default one.
   Spacecraft.unlaunched(String name) : this(name, null);
 
   // Methods.
   void describe() {
     print('Spacecraft: $name');
 
-    // Type promotion dos not work on getters.
     var launchDate = this.launchDate;
     if (launchDate != null) {
       int years = DateTime.now().difference(launchDate).inDays ~/ 365;
@@ -144,10 +113,7 @@ class Spacecraft {
 }
 
 void classes() {
-  print('\n');
-  print('*' * 40);
-  print('类');
-
+  print('类:');
   var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));
   var voyager3 = Spacecraft.unlaunched('Voyager III');
 
@@ -155,7 +121,7 @@ void classes() {
   voyager3.describe();
 }
 
-// 扩展类（继承）
+// 扩展类
 class Orbiter extends Spacecraft {
   double altitude;
 
@@ -170,9 +136,7 @@ class Orbiter extends Spacecraft {
 }
 
 void inheritance() {
-  print('\n');
-  print('*' * 40);
-  print('扩展类（继承）');
+  print('扩展类:');
 
   var obt = Orbiter('天宫号', DateTime(2021, 4, 29), 389.2);
   obt.describe();
@@ -192,9 +156,7 @@ class PilotedCraft extends Spacecraft with Piloted {
 }
 
 void mixins() {
-  print('\n');
-  print('*' * 40);
-  print('Mixins');
+  print('Mixins:');
 
   var plt = PilotedCraft('神舟1号', DateTime(1999, 11, 20));
   plt.describe();
@@ -221,9 +183,7 @@ class MockSpaceship implements Spacecraft {
 }
 
 void interface_and_abstract_classes() {
-  print('\n');
-  print('*' * 40);
-  print('接口和抽象类');
+  print('接口和抽象类:');
 
   var mock = MockSpaceship('测试飞行器', null);
   mock.describe();
@@ -231,9 +191,7 @@ void interface_and_abstract_classes() {
 
 // 异步
 Future<void> the_async() async {
-  print('\n');
-  print('*' * 40);
-  print('异步');
+  print('异步:');
 
   const oneSecond = Duration(seconds: 1);
 
@@ -281,9 +239,7 @@ Future<void> the_async() async {
 
 // Stream （https://www.jianshu.com/p/f9af079782af）
 Future<void> the_stream() async {
-  print('\n');
-  print('*' * 40);
-  print('Stream');
+  print('Stream:');
 
   const oneSecond = Duration(seconds: 1);
 
@@ -321,48 +277,23 @@ Future<void> show_descriptions(flybyObjects) async {
 }
 
 void exceptions() {
-  print('\n');
-  print('*' * 40);
-  print('异常');
+  print('异常:');
 
   var flybyObjects = ['飞机', '火箭', '铲土车', '手机'];
   show_descriptions(flybyObjects);
 }
 
 Future<void> main(List<String> args) async {
-  // 变量
-  variables();
-
-  // 控制流程
-  control_flow_statements();
-
-  // 函数
-  functions();
-
-  // 注释
-  comments();
-
-  // 导入
-  imports();
-
-  // 类
-  classes();
-
-  // 扩展类（继承）
-  inheritance();
-
-  // Mixins
+  variables(); //变量
+  control_flow_statements(); // 控制流程
+  functions(); // 函数
+  comments(); // 注释
+  imports(); // 导入
+  classes(); //类
+  inheritance(); // 扩展类（继承）
   mixins();
-
-  // 接口和抽象类
-  interface_and_abstract_classes();
-
-  // 异步
-  await the_async();
-
-  // Steam
-  await the_stream();
-
-  // 异常
-  exceptions();
+  interface_and_abstract_classes(); // 接口和抽象类
+  await the_async(); // 异步
+  await the_stream(); // Steam
+  exceptions(); // 异常
 }
