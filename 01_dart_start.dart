@@ -209,7 +209,7 @@ Future<void> the_async() async {
     });
   }
 
-  printWithDelay2('过了1秒钟. 2');
+  printWithDelay2('过了1秒钟. 1');
   print('done 2.');
 
   Future<void> createDescriptions(Iterable<String> objects) async {
